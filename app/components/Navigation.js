@@ -40,10 +40,10 @@ export default function Navigation() {
             System
           </Link>
           <Link
-            href="/builder"
+            href="/demo"
             className="text-sm text-brand-muted transition hover:text-brand-text"
           >
-            Builder
+            Demo
           </Link>
           <a
             href="mailto:hello@wastracarry.com?subject=Wastra%20Verified%20waitlist"
@@ -61,10 +61,10 @@ export default function Navigation() {
             Scan a piece
           </Link>
           <Link
-            href="/builder"
+            href="/demo"
             className="rounded-full bg-brand-text px-4 py-2 text-xs font-semibold text-brand-bg transition hover:bg-brand-accent"
           >
-            Open Builder
+            Watch demo
           </Link>
         </div>
       </div>
