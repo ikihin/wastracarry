@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
+import QRLabel from "../components/QRLabel";
 
 export const metadata = {
   title: "Demo — WASTRA CARRY",
@@ -85,6 +86,35 @@ export default function DemoPage() {
           >
             Read the system
           </Link>
+        </div>
+      </section>
+
+      {/* OR TRY YOURSELF — real QR */}
+      <section className="mx-auto max-w-5xl px-6 pb-16">
+        <div className="overflow-hidden rounded-2xl border border-brand-border bg-brand-card">
+          <div className="grid grid-cols-1 items-center md:grid-cols-12">
+            <div className="p-8 md:col-span-7">
+              <div className="text-[11px] uppercase tracking-[0.25em] text-brand-accent">
+                Or try it yourself
+              </div>
+              <h3 className="mt-2 font-display text-2xl font-semibold text-brand-text md:text-3xl">
+                Skip the video — scan this QR.
+              </h3>
+              <p className="mt-3 text-sm text-brand-muted">
+                This is the actual label QR on piece WC-000128. Scan with
+                your phone camera to open the live verification record on
+                your own device.
+              </p>
+            </div>
+            <div className="flex items-center justify-center bg-gradient-to-br from-[#1a1407] to-[#0a0a0a] p-8 md:col-span-5">
+              <QRLabel
+                productId="WC-000128"
+                fabric="Batik Tulis · Yogyakarta"
+                url="https://wastracarry.vercel.app/verify"
+                size={180}
+              />
+            </div>
+          </div>
         </div>
       </section>
 

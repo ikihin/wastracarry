@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
+import QRLabel from "./components/QRLabel";
 
 export default function HomePage() {
   return (
@@ -161,7 +162,7 @@ export default function HomePage() {
                 {
                   n: "Layer 03",
                   t: "Digital record (on-chain)",
-                  d: "Maker, origin, batch, production date, and QC result are anchored as a Solana transaction. Permanent, public, unforgeable.",
+                  d: "Maker, origin, batch, production date, and QC result are anchored on Solana. Permanent, public, unforgeable — integration initiated, rolling out across the current batch.",
                 },
               ].map((step) => (
                 <div
@@ -257,6 +258,78 @@ export default function HomePage() {
             >
               See a live verification record →
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* TRY IT NOW — interactive QR */}
+      <section className="mx-auto max-w-7xl px-6 py-28">
+        <div className="overflow-hidden rounded-3xl border border-brand-border bg-brand-card">
+          <div className="grid grid-cols-1 items-center md:grid-cols-12">
+            <div className="p-10 md:col-span-7 md:p-14">
+              <div className="text-[11px] uppercase tracking-[0.25em] text-brand-accent">
+                Try it now
+              </div>
+              <h2 className="mt-3 font-display text-3xl font-bold leading-tight text-brand-text md:text-5xl">
+                Scan this with your phone.
+              </h2>
+              <p className="mt-5 max-w-lg text-sm leading-relaxed text-brand-muted md:text-base">
+                This is the exact same QR code that gets printed on the
+                origin label of every piece. Open your phone camera, point at
+                the code, tap the notification. The verification record
+                opens — no app install.
+              </p>
+
+              <ul className="mt-8 space-y-3 text-sm text-brand-text/80">
+                <li className="flex items-start gap-3">
+                  <span className="mt-1 font-mono text-xs text-brand-accent">
+                    01
+                  </span>
+                  <span>Open your phone camera</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="mt-1 font-mono text-xs text-brand-accent">
+                    02
+                  </span>
+                  <span>Point at the QR code →</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="mt-1 font-mono text-xs text-brand-accent">
+                    03
+                  </span>
+                  <span>
+                    Tap the notification — the WC-000128 record opens in
+                    your browser
+                  </span>
+                </li>
+              </ul>
+
+              <div className="mt-8 flex flex-wrap items-center gap-3">
+                <Link
+                  href="/verify"
+                  className="rounded-full border border-brand-border bg-brand-bg px-5 py-2.5 text-xs font-medium text-brand-text transition hover:border-brand-accent/40"
+                >
+                  Or click here to open it →
+                </Link>
+              </div>
+            </div>
+
+            <div className="relative flex items-center justify-center bg-gradient-to-br from-[#1a1407] to-[#0a0a0a] p-10 md:col-span-5 md:p-14">
+              <div className="pointer-events-none absolute inset-0 opacity-[0.05]">
+                <div className="absolute inset-0 [background-image:linear-gradient(rgba(255,255,255,0.2)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.2)_1px,transparent_1px)] [background-size:24px_24px]" />
+              </div>
+              <div className="relative">
+                <QRLabel
+                  productId="WC-000128"
+                  fabric="Batik Tulis · Yogyakarta"
+                  url="https://wastracarry.vercel.app/verify"
+                  size={220}
+                />
+                <div className="mt-4 text-center text-[10px] uppercase tracking-[0.2em] text-brand-muted">
+                  Live · scannable
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -494,8 +567,93 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* PROJECT STATUS — honest "where we are" */}
+      <section className="border-y border-brand-border bg-brand-surface">
+        <div className="mx-auto max-w-7xl px-6 py-24">
+          <div className="grid grid-cols-1 gap-10 md:grid-cols-12">
+            <div className="md:col-span-4">
+              <div className="text-[11px] uppercase tracking-[0.25em] text-brand-accent">
+                Where we are
+              </div>
+              <h3 className="mt-3 font-display text-3xl font-bold text-brand-text md:text-4xl">
+                Project status.
+              </h3>
+              <p className="mt-4 text-sm leading-relaxed text-brand-muted">
+                We ship what's real, mark what's in progress, and flag
+                what's next. No vaporware framing.
+              </p>
+            </div>
+
+            <div className="md:col-span-8">
+              <div className="overflow-hidden rounded-2xl border border-brand-border bg-brand-card">
+                {[
+                  {
+                    state: "live",
+                    layer: "L1",
+                    t: "Physical product layer",
+                    d: "3 SKUs in production: Batik Tulis, Tenun Ikat, Lurik.",
+                  },
+                  {
+                    state: "live",
+                    layer: "L2",
+                    t: "Origin label layer",
+                    d: "QR-bearing tamper-evident labels attached to every piece.",
+                  },
+                  {
+                    state: "live",
+                    layer: "UI",
+                    t: "Verification interface",
+                    d: "Scan-to-record flow live, structured product data displayed.",
+                  },
+                  {
+                    state: "rolling",
+                    layer: "L3",
+                    t: "Solana on-chain anchoring",
+                    d: "Integration initiated on Solana to anchor product records permanently. Rollout in progress across the current batch.",
+                  },
+                  {
+                    state: "next",
+                    layer: "B2B",
+                    t: "Wastra Verified API",
+                    d: "Same infrastructure opened to external textile brands. Waitlist open.",
+                  },
+                ].map((row, i, arr) => (
+                  <div
+                    key={row.t}
+                    className={`flex items-start gap-5 px-6 py-5 ${
+                      i < arr.length - 1 ? "border-b border-brand-border" : ""
+                    }`}
+                  >
+                    <div className="shrink-0">
+                      <StatusBadge state={row.state} />
+                    </div>
+                    <div className="flex-1">
+                      <div className="flex items-center gap-3">
+                        <span className="rounded border border-brand-border bg-brand-bg px-1.5 py-0.5 font-mono text-[10px] text-brand-muted">
+                          {row.layer}
+                        </span>
+                        <span className="font-display text-sm font-semibold text-brand-text md:text-base">
+                          {row.t}
+                        </span>
+                      </div>
+                      <div className="mt-1.5 text-xs leading-relaxed text-brand-muted md:text-sm">
+                        {row.d}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-4 text-[11px] text-brand-muted">
+                Status as of {new Date().toLocaleDateString("en-US", { month: "long", year: "numeric" })}.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CLOSING / FOCUS */}
-      <section className="mx-auto max-w-5xl px-6 pb-32 text-center">
+      <section className="mx-auto max-w-5xl px-6 py-32 text-center">
         <div className="text-[11px] uppercase tracking-[0.25em] text-brand-accent">
           Focus
         </div>
@@ -523,5 +681,34 @@ function ValidationCard({ k, l, note }) {
         {note}
       </div>
     </div>
+  );
+}
+
+function StatusBadge({ state }) {
+  const map = {
+    live: {
+      label: "Live",
+      cls: "border-emerald-500/30 bg-emerald-500/10 text-emerald-300",
+      dot: "bg-emerald-400",
+    },
+    rolling: {
+      label: "Rolling out",
+      cls: "border-amber-500/30 bg-amber-500/10 text-amber-300",
+      dot: "bg-amber-400 animate-pulse",
+    },
+    next: {
+      label: "Next",
+      cls: "border-brand-border bg-brand-bg text-brand-muted",
+      dot: "bg-brand-muted",
+    },
+  };
+  const s = map[state] ?? map.next;
+  return (
+    <span
+      className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider ${s.cls}`}
+    >
+      <span className={`h-1.5 w-1.5 rounded-full ${s.dot}`} />
+      {s.label}
+    </span>
   );
 }

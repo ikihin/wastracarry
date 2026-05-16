@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
+import QRLabel from "../components/QRLabel";
 
 export default function VerifyPage() {
   return (
@@ -31,12 +32,27 @@ export default function VerifyPage() {
       <section className="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-6 py-16 md:grid-cols-12">
         {/* PRODUCT EVIDENCE (close-up, not lifestyle) */}
         <div className="md:col-span-6">
-          <div className="overflow-hidden rounded-2xl border border-brand-border bg-brand-card">
+          <div className="relative overflow-hidden rounded-2xl border border-brand-border bg-brand-card">
             <img
               src="/images/totebag-1.png"
               alt="WC-000128 — primary view"
               className="aspect-square w-full object-cover"
             />
+
+            {/* QR Label overlay — the actual label on this piece */}
+            <div className="absolute bottom-4 right-4 hidden md:block">
+              <div className="relative">
+                <div className="absolute -inset-3 -z-10 rounded-2xl bg-black/40 blur-xl" />
+                <div className="origin-bottom-right scale-90">
+                  <QRLabel
+                    productId="WC-000128"
+                    fabric="Batik Tulis · Yogyakarta"
+                    url="https://wastracarry.vercel.app/verify"
+                    size={140}
+                  />
+                </div>
+              </div>
+            </div>
           </div>
           <div className="mt-4 grid grid-cols-3 gap-3">
             {["/images/totebag-5.png", "/images/totebag-6.png", "/images/totebag-10.png"].map(
@@ -53,6 +69,19 @@ export default function VerifyPage() {
                 </div>
               ),
             )}
+          </div>
+
+          {/* Mobile: show QR label below image */}
+          <div className="mt-6 flex flex-col items-center gap-3 rounded-2xl border border-brand-border bg-brand-card p-6 md:hidden">
+            <div className="text-[10px] uppercase tracking-[0.2em] text-brand-muted">
+              The label on this piece
+            </div>
+            <QRLabel
+              productId="WC-000128"
+              fabric="Batik Tulis · Yogyakarta"
+              url="https://wastracarry.vercel.app/verify"
+              size={180}
+            />
           </div>
         </div>
 
