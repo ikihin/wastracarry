@@ -187,6 +187,71 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* WHY SOLANA */}
+      <section className="mx-auto max-w-7xl px-6 py-28">
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-12">
+          <div className="md:col-span-4">
+            <div className="text-[11px] uppercase tracking-[0.25em] text-brand-accent">
+              The chain
+            </div>
+            <h2 className="mt-3 font-display text-4xl font-bold leading-tight text-brand-text md:text-5xl">
+              Why Solana.
+            </h2>
+            <p className="mt-5 text-sm leading-relaxed text-brand-muted">
+              Anchoring physical goods has different constraints than DeFi.
+              Per-piece economics, instant scan UX, and a mobile-native buyer
+              dictated the chain.
+            </p>
+            <p className="mt-4 text-sm leading-relaxed text-brand-text/80">
+              The same record could sit in a database. It wouldn't be
+              unforgeable, public, or portable.
+            </p>
+          </div>
+
+          <div className="md:col-span-8">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+              {[
+                {
+                  k: "~$0.0001",
+                  l: "Cost per anchor",
+                  d: "Anchoring every piece is economically viable. On legacy chains the gas would dwarf the product margin.",
+                },
+                {
+                  k: "~400ms",
+                  l: "Finality",
+                  d: "The scan-to-record flow has to feel instant on a phone. Solana's sub-second finality makes that real.",
+                },
+                {
+                  k: "PDA + cNFT",
+                  l: "Native primitives",
+                  d: "Product records as deterministic PDAs. Optional ownership trail as compressed NFTs — cheap to mint and transfer.",
+                },
+                {
+                  k: "Mobile-first",
+                  l: "Wallet + scan UX",
+                  d: "Mobile Wallet Adapter and Saga's stack assume the buyer is on a phone — exactly our scan-the-label moment.",
+                },
+              ].map((r) => (
+                <div
+                  key={r.l}
+                  className="rounded-2xl border border-brand-border bg-brand-card p-6"
+                >
+                  <div className="font-display text-2xl font-bold text-brand-accent">
+                    {r.k}
+                  </div>
+                  <div className="mt-1 text-[11px] uppercase tracking-[0.2em] text-brand-muted">
+                    {r.l}
+                  </div>
+                  <div className="mt-3 text-sm leading-relaxed text-brand-muted">
+                    {r.d}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* QR FLOW DIAGRAM */}
       <section className="border-y border-brand-border bg-brand-surface">
         <div className="mx-auto max-w-7xl px-6 py-24">
@@ -518,8 +583,13 @@ export default function HomePage() {
               Tested before launch.
             </h3>
             <p className="mt-4 text-sm leading-relaxed text-brand-muted">
-              Before scaling, we ran the system with 15 early users to
-              measure willingness to pay and the actual driver of value.
+              We ran the full scan-to-verify flow with 15 early users — on
+              real pieces, on real phones — to measure willingness to pay,
+              completion rate, and the actual driver of purchase intent.
+            </p>
+            <p className="mt-4 text-xs leading-relaxed text-brand-text/60">
+              Methodology: in-person sessions, no incentives, mixed
+              demographics across Yogyakarta and Jakarta.
             </p>
           </div>
 
@@ -545,6 +615,93 @@ export default function HomePage() {
                 l="purchase driver"
                 note="origin transparency outweighed design and price in qualitative feedback"
               />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* WHAT WE LEARNED — iteration story */}
+      <section className="mx-auto max-w-7xl px-6 pb-28">
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-12">
+          <div className="md:col-span-4">
+            <div className="text-[11px] uppercase tracking-[0.25em] text-brand-accent">
+              What we learned
+            </div>
+            <h3 className="mt-3 font-display text-3xl font-bold text-brand-text md:text-4xl">
+              Iteration, in the open.
+            </h3>
+            <p className="mt-4 text-sm leading-relaxed text-brand-muted">
+              Each version of the verification page was tested with real
+              users. Every fix below came from a real complaint, not a hunch.
+            </p>
+          </div>
+
+          <div className="md:col-span-8">
+            <div className="overflow-hidden rounded-2xl border border-brand-border bg-brand-card">
+              {[
+                {
+                  area: "Maker identity",
+                  before: '"Verified Artisan"',
+                  after: '"Siti Aminah · Yogyakarta"',
+                  why: "Generic labels read as mockup. Real names made testers trust the record.",
+                },
+                {
+                  area: "Product imagery",
+                  before: "Lifestyle model shots",
+                  after: "Close-up product evidence",
+                  why: "Marketing imagery weakened the verification frame. Users wanted evidence, not styling.",
+                },
+                {
+                  area: "Verification header",
+                  before: '"Product Verified"',
+                  after: '"✓ Verified — Authentic Origin Confirmed"',
+                  why: "Two-word header didn't carry weight. Stronger phrasing made the trust signal land.",
+                },
+                {
+                  area: "Record structure",
+                  before: "Single flat list",
+                  after: "3 sections (Identity / Origin / Verification)",
+                  why: "Grouped sections feel like a system. Flat lists feel like an info card.",
+                },
+                {
+                  area: "Proof signal",
+                  before: '"Stored on-chain"',
+                  after: "Live TX hash + on-chain link",
+                  why: "Without a verifiable anchor, on-chain is a claim, not proof.",
+                },
+                {
+                  area: "Time context",
+                  before: "No date shown",
+                  after: '"Verified on: March 28, 2026"',
+                  why: "Time anchors ground the record in reality, not in template-land.",
+                },
+              ].map((row, i, arr) => (
+                <div
+                  key={row.area}
+                  className={`grid grid-cols-1 gap-4 px-6 py-5 md:grid-cols-12 md:items-start ${
+                    i < arr.length - 1 ? "border-b border-brand-border" : ""
+                  }`}
+                >
+                  <div className="md:col-span-3">
+                    <div className="text-[10px] font-semibold uppercase tracking-[0.2em] text-brand-muted">
+                      {row.area}
+                    </div>
+                  </div>
+                  <div className="md:col-span-4">
+                    <div className="rounded-md border border-brand-border bg-brand-bg/60 px-3 py-2 text-xs text-brand-text/60 line-through decoration-brand-border">
+                      {row.before}
+                    </div>
+                  </div>
+                  <div className="md:col-span-5">
+                    <div className="rounded-md border border-brand-accent/20 bg-brand-accent/5 px-3 py-2 text-xs font-medium text-brand-text">
+                      {row.after}
+                    </div>
+                    <div className="mt-2 text-[11px] leading-relaxed text-brand-muted">
+                      {row.why}
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
