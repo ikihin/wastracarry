@@ -45,6 +45,12 @@ export default function Navigation() {
           >
             Demo
           </Link>
+          <Link
+            href="/about"
+            className="text-sm text-brand-muted transition hover:text-brand-text"
+          >
+            About
+          </Link>
           <a
             href="mailto:hello@wastracarry.com?subject=Wastra%20Verified%20waitlist"
             className="text-sm text-brand-muted transition hover:text-brand-text"

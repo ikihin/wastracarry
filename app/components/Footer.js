@@ -84,9 +84,9 @@ export default function Footer() {
               </div>
               <ul className="mt-4 space-y-2 text-sm">
                 <li>
-                  <a href="#" className="text-brand-text/80 hover:text-brand-text">
+                  <Link href="/about" className="text-brand-text/80 hover:text-brand-text">
                     About
-                  </a>
+                  </Link>
                 </li>
                 <li>
                   <a href="#" className="text-brand-text/80 hover:text-brand-text">
@@ -94,7 +94,7 @@ export default function Footer() {
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="text-brand-text/80 hover:text-brand-text">
+                  <a href="mailto:rizqymohammadz@gmail.com" className="text-brand-text/80 hover:text-brand-text">
                     Contact
                   </a>
                 </li>
