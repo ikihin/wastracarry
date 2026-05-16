@@ -14,13 +14,14 @@ export default function VerifyPage() {
             <Link href="/" className="hover:text-brand-text">
               ← All pieces
             </Link>
-            <span className="font-mono">WC-000128</span>
+            <span className="font-mono">WC-000128 · Batik Tulis</span>
           </div>
           <div className="flex items-center gap-3">
+            <span className="hidden sm:inline">Opened via QR scan</span>
             <span className="font-mono">Verified on: March 28, 2026</span>
             <span className="inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3 py-1 font-semibold text-emerald-300">
               <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-              Live record
+              Live · Solana
             </span>
           </div>
         </div>
@@ -82,8 +83,23 @@ export default function VerifyPage() {
 
           <p className="mt-4 max-w-lg text-sm leading-relaxed text-brand-muted">
             This record was issued by the WASTRA verification network and
-            anchored on-chain. It cannot be edited, copied, or backdated.
+            anchored on Solana. It cannot be edited, copied, or backdated.
           </p>
+
+          {/* 3-layer mini bar */}
+          <div className="mt-5 flex flex-wrap items-center gap-2 text-[10px] uppercase tracking-[0.2em] text-brand-muted">
+            <span className="rounded-full border border-brand-border bg-brand-card px-2.5 py-1">
+              L1 · Physical
+            </span>
+            <span className="text-brand-border">→</span>
+            <span className="rounded-full border border-brand-border bg-brand-card px-2.5 py-1">
+              L2 · Origin label
+            </span>
+            <span className="text-brand-border">→</span>
+            <span className="rounded-full border border-brand-accent/30 bg-brand-accent/10 px-2.5 py-1 text-brand-accent">
+              L3 · On-chain · you are here
+            </span>
+          </div>
 
           {/* SECTION: PRODUCT IDENTITY */}
           <RecordSection title="Product Identity">
@@ -114,7 +130,7 @@ export default function VerifyPage() {
             <Row k="Field auditor" v="Andi Pratomo · WASTRA Field Node 04" />
             <Row k="Verified on" v="March 28, 2026" />
             <Row
-              k="Transaction"
+              k="Anchor (Solana)"
               v={
                 <a
                   href="#"

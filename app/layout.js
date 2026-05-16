@@ -1,9 +1,9 @@
 import "./globals.css";
 
 export const metadata = {
-  title: "WASTRA CARRY — Make physical products verifiable",
+  title: "WASTRA CARRY — Trust infrastructure for cultural products",
   description:
-    "WASTRA CARRY is a verification system for physical products. Each piece carries a verifiable origin, maker, and on-chain proof of authenticity.",
+    "WASTRA CARRY is a verification infrastructure that gives physical textiles a permanent, on-chain identity on Solana. Scan a piece, see its origin — verified, not claimed.",
 };
 
 export default function RootLayout({ children }) {

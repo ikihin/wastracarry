@@ -34,16 +34,22 @@ export default function Navigation() {
             Verify
           </Link>
           <Link
+            href="/#system"
+            className="text-sm text-brand-muted transition hover:text-brand-text"
+          >
+            System
+          </Link>
+          <Link
             href="/builder"
             className="text-sm text-brand-muted transition hover:text-brand-text"
           >
             Builder
           </Link>
           <a
-            href="#system"
+            href="mailto:hello@wastracarry.com?subject=Wastra%20Verified%20waitlist"
             className="text-sm text-brand-muted transition hover:text-brand-text"
           >
-            System
+            For brands
           </a>
         </nav>
 

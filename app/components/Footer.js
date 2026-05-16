@@ -21,15 +21,15 @@ export default function Footer() {
                   WASTRA CARRY
                 </div>
                 <div className="mt-2 text-sm font-medium uppercase tracking-[0.35em] text-brand-muted">
-                  Make physical products verifiable
+                  Trust infrastructure · on-chain origin
                 </div>
               </div>
             </div>
 
             <p className="mt-10 max-w-xl text-sm leading-relaxed text-brand-muted">
-              A verification layer for textiles and crafted goods. Every piece
-              carries a permanent record of its maker, origin, batch, and
-              quality check — anchored on-chain, readable by anyone.
+              A 3-layer verification infrastructure for textiles and cultural
+              products. Each piece carries a permanent record — physical,
+              labeled, and anchored on Solana.
             </p>
           </div>
 
@@ -68,7 +68,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <a href="#" className="text-brand-text/80 hover:text-brand-text">
-                    Certification
+                    Wastra Verified (API)
                   </a>
                 </li>
                 <li>
@@ -108,7 +108,7 @@ export default function Footer() {
           <div className="flex items-center gap-6">
             <span>Verification protocol v0.4</span>
             <span className="rounded-full border border-brand-border px-3 py-1 font-mono uppercase tracking-widest text-brand-text/70">
-              On-chain
+              Solana
             </span>
           </div>
         </div>
