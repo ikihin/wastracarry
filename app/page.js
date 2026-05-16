@@ -358,21 +358,21 @@ export default function HomePage() {
               name: "Batik Tulis",
               origin: "Yogyakarta",
               tradition: "Hand-drawn wax-resist",
-              img: "/images/totebag-1.png",
+              img: "/images/totebag-2.png",
             },
             {
               sku: "WC-TI",
               name: "Tenun Ikat",
               origin: "Nusa Tenggara Timur",
               tradition: "Hand-woven yarn-dyed",
-              img: "/images/totebag-6.png",
+              img: "/images/totebag-7.png",
             },
             {
               sku: "WC-LK",
               name: "Lurik",
               origin: "Klaten, Central Java",
               tradition: "Hand-loomed stripe weaving",
-              img: "/images/totebag-10.png",
+              img: "/images/totebag-11.png",
             },
           ].map((p) => (
             <div
@@ -407,6 +407,69 @@ export default function HomePage() {
                   <span className="text-brand-muted">Origin</span>
                   <span className="text-brand-text">{p.origin}</span>
                 </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* LOOKBOOK / COLLECTION GRID */}
+      <section className="relative mx-auto max-w-7xl px-6 pb-28">
+        <div className="flex flex-col items-start justify-between gap-4 md:flex-row md:items-end">
+          <div>
+            <div className="text-[11px] uppercase tracking-[0.25em] text-brand-accent">
+              The collection
+            </div>
+            <h2 className="mt-3 font-display text-4xl font-bold text-brand-text md:text-5xl">
+              From the workshop.
+            </h2>
+            <p className="mt-4 max-w-lg text-sm text-brand-muted">
+              Every piece in the current batch — each one carries the same
+              3-layer verification stack.
+            </p>
+          </div>
+          <Link
+            href="/verify"
+            className="text-sm text-brand-muted hover:text-brand-text"
+          >
+            Open the registry →
+          </Link>
+        </div>
+
+        <div className="mt-12 grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 md:gap-4">
+          {[
+            { id: "WC-000128", img: "/images/totebag-1.png" },
+            { id: "WC-000129", img: "/images/totebag-3.png" },
+            { id: "WC-000130", img: "/images/totebag-4.png" },
+            { id: "WC-000131", img: "/images/totebag-5.png" },
+            { id: "WC-000132", img: "/images/totebag-6.png" },
+            { id: "WC-000133", img: "/images/totebag-8.png" },
+            { id: "WC-000134", img: "/images/totebag-9.png" },
+            { id: "WC-000135", img: "/images/totebag-10.png" },
+            { id: "WC-000136", img: "/images/totebag-12.png" },
+            { id: "WC-000137", img: "/images/totebag-main.png" },
+            { id: "WC-000138", img: "/images/totebag-7.png" },
+            { id: "WC-000139", img: "/images/totebag-11.png" },
+          ].map((p) => (
+            <div
+              key={p.id}
+              className="group relative overflow-hidden rounded-xl border border-brand-border bg-brand-card transition hover:border-brand-accent/40"
+            >
+              <div className="aspect-square overflow-hidden bg-brand-bg">
+                <img
+                  src={p.img}
+                  alt={p.id}
+                  loading="lazy"
+                  className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.06]"
+                />
+              </div>
+              <div className="pointer-events-none absolute inset-x-0 bottom-0 flex items-center justify-between bg-gradient-to-t from-black/80 via-black/40 to-transparent px-3 pb-3 pt-8">
+                <span className="font-mono text-[11px] text-brand-text/90">
+                  {p.id}
+                </span>
+                <span className="inline-flex items-center gap-1 rounded-full border border-emerald-500/40 bg-emerald-500/15 px-1.5 py-0.5 text-[9px] font-semibold uppercase tracking-wider text-emerald-200">
+                  ✓
+                </span>
               </div>
             </div>
           ))}

@@ -54,21 +54,24 @@ export default function VerifyPage() {
               </div>
             </div>
           </div>
-          <div className="mt-4 grid grid-cols-3 gap-3">
-            {["/images/totebag-5.png", "/images/totebag-6.png", "/images/totebag-10.png"].map(
-              (src, i) => (
-                <div
-                  key={i}
-                  className="overflow-hidden rounded-xl border border-brand-border bg-brand-card"
-                >
-                  <img
-                    src={src}
-                    alt={`detail-${i}`}
-                    className="aspect-square w-full object-cover"
-                  />
-                </div>
-              ),
-            )}
+          <div className="mt-4 grid grid-cols-4 gap-3">
+            {[
+              "/images/totebag-3.png",
+              "/images/totebag-4.png",
+              "/images/totebag-8.png",
+              "/images/totebag-9.png",
+            ].map((src, i) => (
+              <div
+                key={i}
+                className="overflow-hidden rounded-xl border border-brand-border bg-brand-card"
+              >
+                <img
+                  src={src}
+                  alt={`detail-${i}`}
+                  className="aspect-square w-full object-cover"
+                />
+              </div>
+            ))}
           </div>
 
           {/* Mobile: show QR label below image */}
